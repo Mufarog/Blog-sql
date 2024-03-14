@@ -1,26 +1,30 @@
 // src/components/NewPostForm.js
-/*
+
 import React, { useState } from 'react';
 
 const NewPostForm = ({ onAddPost }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [image, setImage] = useState(null);
 
   const handleSubmit = async e => {
     e.preventDefault();
     try {
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('content', content);
+      formData.append('image', image);
+
       const response = await fetch('/api/posts', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ title, content }),
+        body: formData,
       });
       const data = await response.json();
       onAddPost(data);
       // Clear the form fields after submitting
       setTitle('');
       setContent('');
+      setImage(null);
     } catch (error) {
       console.error('Error adding post:', error);
     }
@@ -49,6 +53,15 @@ const NewPostForm = ({ onAddPost }) => {
           ></textarea>
         </label>
         <br />
+        <label>
+          Image:
+          <input
+            type="file"
+            accept="image/*"
+            onChange={e => setImage(e.target.files[0])}
+          />
+        </label>
+        <br />
         <button type="submit">Submit</button>
       </form>
     </div>
@@ -56,4 +69,3 @@ const NewPostForm = ({ onAddPost }) => {
 };
 
 export default NewPostForm;
-*/

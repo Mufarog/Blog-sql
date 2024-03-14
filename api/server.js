@@ -1,19 +1,20 @@
-// server.js
-
 const express = require('express');
 const fs = require('fs').promises;
+const path = require('path');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 
+const postsFilePath = path.join(__dirname, 'posts.json');
+
 // Endpoint to retrieve all blog posts
 app.get('/api/posts', async (req, res) => {
   try {
-    // Read the contents of the posts.json file
-    const data = await fs.readFile('posts.json', 'utf-8');
-    const posts = JSON.parse(data); // Parse the JSON data to get an array of posts
-    res.json(posts); // Send the posts array as a JSON response
+    const data = await fs.readFile(postsFilePath, 'utf-8');
+    const posts = JSON.parse(data);
+    res.json(posts);
   } catch (error) {
     console.error('Error retrieving posts:', error);
     res.status(500).json({ error: 'Server error' });
@@ -23,23 +24,12 @@ app.get('/api/posts', async (req, res) => {
 // Endpoint to add a new blog post
 app.post('/api/posts', async (req, res) => {
   try {
-    // Extract the new post data from the request body
     const newPost = req.body;
-    
-    // Read the existing posts from the posts.json file
-    const data = await fs.readFile('posts.json', 'utf-8');
-    const posts = JSON.parse(data); // Parse the JSON data to get an array of posts
-    
-    // Assign a unique ID to the new post
+    const data = await fs.readFile(postsFilePath, 'utf-8');
+    const posts = JSON.parse(data);
     newPost.id = Date.now();
-    
-    // Add the new post to the array of posts
     posts.push(newPost);
-    
-    // Write the updated posts array back to the posts.json file
-    await fs.writeFile('posts.json', JSON.stringify(posts, null, 2));
-    
-    // Send the new post as a JSON response
+    await fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2));
     res.status(201).json(newPost);
   } catch (error) {
     console.error('Error adding post:', error);
@@ -50,20 +40,11 @@ app.post('/api/posts', async (req, res) => {
 // Endpoint to delete a blog post by ID
 app.delete('/api/posts/:id', async (req, res) => {
   try {
-    // Extract the post ID from the request parameters
     const postId = parseInt(req.params.id);
-    
-    // Read the existing posts from the posts.json file
-    const data = await fs.readFile('posts.json', 'utf-8');
-    let posts = JSON.parse(data); // Parse the JSON data to get an array of posts
-    
-    // Filter out the post with the specified ID
+    const data = await fs.readFile(postsFilePath, 'utf-8');
+    let posts = JSON.parse(data);
     posts = posts.filter(post => post.id !== postId);
-    
-    // Write the updated posts array back to the posts.json file
-    await fs.writeFile('posts.json', JSON.stringify(posts, null, 2));
-    
-    // Send a success message as a JSON response
+    await fs.writeFile(postsFilePath, JSON.stringify(posts, null, 2));
     res.json({ message: 'Post deleted successfully' });
   } catch (error) {
     console.error('Error deleting post:', error);

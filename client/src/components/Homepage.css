@@ -1,0 +1,36 @@
+/* Homepage.css */
+
+/* Style for the main container */
+.homepage-container {
+    max-width: 800px; /* Set maximum width */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add padding */
+    text-align: center; /* Center-align text */
+  }
+  
+  /* Style for the heading */
+  .homepage-heading {
+    font-size: 24px; /* Set font size */
+    margin-bottom: 20px; /* Add space below the heading */
+    text-align: center; /* Center-align text */
+  }
+  
+  /* Style for individual posts */
+  .post-container {
+    border: 1px solid #ccc; /* Add border */
+    padding: 10px; /* Add padding */
+    margin-bottom: 20px; /* Add space between posts */
+  }
+  
+  /* Style for post title */
+  .post-title {
+    font-size: 20px; /* Set font size */
+    margin-bottom: 10px; /* Add space below the title */
+  }
+  
+  /* Style for post content */
+  .post-content {
+    font-size: 16px; /* Set font size */
+    color: #555; /* Set text color */
+  }
+  

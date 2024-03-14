@@ -1,6 +1,7 @@
-/*
+
 // LoginPage.js
 import React, { useState } from 'react';
+import './LoginPage.css';
 
 const LoginPage = () => {
   // State for storing login and registration form data
@@ -81,4 +82,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-*/

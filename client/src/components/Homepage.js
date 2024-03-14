@@ -1,7 +1,8 @@
 // src/components/Homepage.js
 
 import React, { useEffect, useState } from 'react';
-import Post from './Post';
+import Post from './Posts';
+import './Homepage.css';
 
 const Homepage = () => {
   const [posts, setPosts] = useState([]);
@@ -22,8 +23,9 @@ const Homepage = () => {
   };
 
   return (
-    <div>
-      <h1>Blog Homepage</h1>
+    
+    <div className='homepage-heading'>
+      <h1>Travel Posts</h1>
       {posts.map(post => (
         <Post key={post.id} post={post} />
       ))}

@@ -1,0 +1,49 @@
+/* Navbar.css */
+
+/* Navigation bar container */
+.navbar-container {
+    background-color: #333; /* Set background color */
+    padding: 10px 20px; /* Add padding to the top and bottom */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Align items with space between */
+    align-items: center; /* Center align items vertically */
+  }
+  
+  /* Style for the heading */
+  .navbar-heading {
+    color: #fff; /* Set text color to white */
+    font-size: 24px; /* Set font size */
+  }
+  
+  /* Style for the small round picture */
+  .profile-picture {
+    width: 50px; /* Set width */
+    height: 50px; /* Set height */
+    border-radius: 80%; /* Make it round */
+  }
+  
+  /* Style for the list */
+  .navbar-right ul {
+    list-style-type: none; /* Remove default list styles */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+  
+  /* Style for list items */
+  .navbar-right li {
+    display: inline; /* Display list items inline */
+    margin-left: 20px; /* Add spacing between list items */
+  }
+  
+  /* Style for the links */
+  .navbar-right li a {
+    color: #fff; /* Set text color to white */
+    text-decoration: none; /* Remove underline */
+    font-size: 18px; /* Set font size */
+  }
+  
+  /* Hover effect for the links */
+  .navbar-right li a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
