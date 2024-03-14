@@ -1,4 +1,5 @@
 // src/components/Post.js
+/*
 import React from 'react';
 
 const Post = ({ post }) => {
@@ -11,3 +12,4 @@ const Post = ({ post }) => {
 };
 
 export default Post;
+*/

@@ -1,48 +1,51 @@
-import React, { useState, useEffect } from 'react';
+// App.js
+/*
+import React from 'react';
+import { BrowserRouter as Switch, Route, Router } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
-import PostPage from './components/Post';
 import NewPostPage from './components/NewPostForm';
+import Posts from './components/Post'; // Assuming 'Posts' is the component for displaying all posts
+import LoginPage from './components/LoginPage';
 
 const App = () => {
-  // State to keep track of the current URL path
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
-
-  // Function to update the current path when the URL changes
-  const handlePathChange = () => {
-    setCurrentPath(window.location.pathname);
-  };
-
-  // Add event listener to handle URL changes
-  useEffect(() => {
-    window.addEventListener('popstate', handlePathChange);
-    return () => {
-      window.removeEventListener('popstate', handlePathChange);
-    };
-  }, []);
-
-  // Function to render the appropriate component based on the current URL path
-  const renderComponent = () => {
-    switch (currentPath) {
-      case '/':
-        return <Homepage />;
-      case '/new':
-        return <NewPostPage />;
-      default:
-        // If the path matches '/post/:id', extract the post ID and render the PostPage component
-        if (currentPath.startsWith('/post/')) {
-          const postId = currentPath.split('/').pop();
-          return <PostPage postId={postId} />;
-        } else {
-          // Render a 404 page for unknown routes
-          return <div>404 Page Not Found</div>;
-        }
-    }
-  };
-
   return (
-    <div>
-      {renderComponent()}
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Homepage />
+          </Route>
+          <Route path="/posts">
+            <Posts />
+          </Route>
+          <Route path="/new">
+            <NewPostPage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+};
+
+export default App;
+*/
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Homepage from './components/Homepage';
+
+const App = () => {
+  return (
+    <Router>
+      <div>
+        <Route exact path="/" component={Homepage} />
+      </div>
+    </Router>
   );
 };
 

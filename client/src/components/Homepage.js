@@ -1,4 +1,5 @@
 // src/components/Homepage.js
+
 import React, { useEffect, useState } from 'react';
 import Post from './Post';
 
@@ -31,3 +32,4 @@ const Homepage = () => {
 };
 
 export default Homepage;
+

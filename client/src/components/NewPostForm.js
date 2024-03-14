@@ -1,4 +1,5 @@
 // src/components/NewPostForm.js
+/*
 import React, { useState } from 'react';
 
 const NewPostForm = ({ onAddPost }) => {
@@ -55,3 +56,4 @@ const NewPostForm = ({ onAddPost }) => {
 };
 
 export default NewPostForm;
+*/
