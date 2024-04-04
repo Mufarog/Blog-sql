@@ -1,23 +1,11 @@
 // src/components/Posts.js
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-const Posts = () => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch('/api/posts');
-        const data = await response.json();
-        setPosts(data);
-      } catch (error) {
-        console.error('Error fetching posts:', error);
-      }
-    };
-
-    fetchPosts();
-  }, []);
+const Posts = ({ posts, onDeletePost }) => {
+  const handleDelete = id => {
+    onDeletePost(id);
+  };
 
   return (
     <div>
@@ -27,6 +15,7 @@ const Posts = () => {
           <h3>{post.title}</h3>
           <p>{post.content}</p>
           {post.image && <img src={post.image} alt="Post" />}
+          <button onClick={() => handleDelete(post.id)}>Delete</button>
         </div>
       ))}
     </div>

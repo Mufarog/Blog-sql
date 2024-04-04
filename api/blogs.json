@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "title": "First Blog Post",
+      "content": "This is the content of the first blog post.",
+      "author": "John Doe",
+      "date": "2024-03-29",
+      "image": "path/to/first_blog_post_image.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Second Blog Post",
+      "content": "This is the content of the second blog post.",
+      "author": "Jane Smith",
+      "date": "2024-03-30",
+      "image": "path/to/second_blog_post_image.jpg"
+    }
+  ]
+  

@@ -1,4 +1,3 @@
-
 // LoginPage.js
 import React, { useState } from 'react';
 import './LoginPage.css';
@@ -28,31 +27,6 @@ const LoginPage = () => {
 
   return (
     <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLoginSubmit}>
-        <div>
-          <label htmlFor="loginUsername">Username:</label>
-          <input 
-            type="text" 
-            id="loginUsername" 
-            value={loginUsername} 
-            onChange={(e) => setLoginUsername(e.target.value)} 
-            required 
-          />
-        </div>
-        <div>
-          <label htmlFor="loginPassword">Password:</label>
-          <input 
-            type="password" 
-            id="loginPassword" 
-            value={loginPassword} 
-            onChange={(e) => setLoginPassword(e.target.value)} 
-            required 
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-
       <h2>Register</h2>
       <form onSubmit={handleRegisterSubmit}>
         <div>
@@ -77,8 +51,34 @@ const LoginPage = () => {
         </div>
         <button type="submit">Register</button>
       </form>
+
+      <h2>Login</h2>
+      <form onSubmit={handleLoginSubmit}>
+        <div>
+          <label htmlFor="loginUsername">Username:</label>
+          <input 
+            type="text" 
+            id="loginUsername" 
+            value={loginUsername} 
+            onChange={(e) => setLoginUsername(e.target.value)} 
+            required 
+          />
+        </div>
+        <div>
+          <label htmlFor="loginPassword">Password:</label>
+          <input 
+            type="password" 
+            id="loginPassword" 
+            value={loginPassword} 
+            onChange={(e) => setLoginPassword(e.target.value)} 
+            required 
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 };
 
 export default LoginPage;
+
